@@ -19,7 +19,7 @@ ros::NodeHandle nh;
 // 配信者キューには、メッセージを送る際、メッセージデータを蓄積する。
 // http://wiki.ros.org/msg
 ros::Publisher ros_tutorial_pub =
-nh.advertise<drone_control::msgTutorial>("drone_joint_data", 100);
+nh.advertise<drone_msgs::drone_joint_data>("drone_joint_data", 100);
 // ループの周期を設定する。 "10"は10Hzを表し、0.1秒間隔で繰り返される
 // http://wiki.ros.org/roscpp/Overview/Time
 ros::Rate loop_rate(10);
@@ -29,7 +29,7 @@ int count = 0;
 while (ros::ok())
 {
 // msgTutorialメッセージファイル形式でmsg変数を宣言する。
-irvs_ros_tutorials::msgTutorial msg;
+drone_msgs::drone_joint_data msg;
 // 変数countを使用して、メッセージの値を定める。
 msg.data = count;
 // ROS_INFOというROS関数を使用して、count変数を表示する。
